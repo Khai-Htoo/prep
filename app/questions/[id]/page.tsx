@@ -70,21 +70,21 @@ export default function QuestionDetailPage({ params }: PageProps) {
               <div className="vocab-section mt-8">
                 <div className="vocab-label">📚 词汇 / Vocabulary</div>
                 <div className="vocab-grid">
-                  <div className="vocab-header">
+                  <div className="vocab-header grid-cols-[1.2fr_1fr_1.2fr] sm:grid-cols-[1fr_1.2fr_1.2fr_1fr]">
                     <span>汉字</span>
                     <span>拼音</span>
                     <span>ဗမာ</span>
-                    <span>English</span>
+                    <span className="hidden sm:block">English</span>
                   </div>
                   {question.vocab.map((v, i) => (
-                    <div key={i} className="vocab-row">
-                      <span className="vocab-hanzi flex items-center justify-between gap-2">
+                    <div key={i} className="vocab-row grid-cols-[1.2fr_1fr_1.2fr] sm:grid-cols-[1fr_1.2fr_1.2fr_1fr]">
+                      <span className="vocab-hanzi flex items-center justify-between gap-2 border-r border-[var(--border-color)] sm:border-r-0">
                         {v.hanzi}
                         <SpeakButton text={v.hanzi} size="sm" />
                       </span>
-                      <span className="vocab-pinyin">{v.pinyin}</span>
+                      <span className="vocab-pinyin border-r border-[var(--border-color)] sm:border-r-0">{v.pinyin}</span>
                       <span className="vocab-burmese">{v.burmese}</span>
-                      <span className="vocab-english">{v.english}</span>
+                      <span className="vocab-english hidden sm:block">{v.english}</span>
                     </div>
                   ))}
                 </div>
